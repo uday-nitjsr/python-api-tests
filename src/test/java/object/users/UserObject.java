@@ -1,10 +1,10 @@
 package object.users;
 
-public class User {
+public class UserObject {
     String email;
     String password;
 
-    public User(String username,String password){
+    public UserObject(String username, String password){
         this.email = username;
         this.password = password;
     }
