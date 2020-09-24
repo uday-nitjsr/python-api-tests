@@ -1,6 +1,6 @@
 package api.features.articles;
 
-import api.features.login.Login;
+import api.features.users.login.Login;
 import api.base.BaseApi;
 import api.base.BaseGet;
 import io.restassured.http.Header;

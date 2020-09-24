@@ -1,7 +1,9 @@
-package api.features.login;
+package api.features.users.login;
 
 import api.base.BaseApi;
 import api.base.BasePost;
+import com.google.gson.Gson;
+import object.users.User;
 
 public class Login extends BasePost {
     String url = BaseApi.url + "/users/login";
@@ -10,7 +12,10 @@ public class Login extends BasePost {
     String password;
 
     public String login(){
-        addBody("{\"user\":{\"email\":\""+username+"\",\"password\":\""+password+"\"}}");
+        User user = new User(username,password);
+        object.users.login.Login login = new object.users.login.Login(user);
+        Gson userJson = new Gson();
+        addBody(userJson.toJson(login));
         return request(url).body().jsonPath().get("user.token");
     }
 

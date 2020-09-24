@@ -2,7 +2,7 @@ package api.features.articles.feed;
 
 import api.base.BaseApi;
 import api.base.BaseGet;
-import api.features.login.Login;
+import api.features.users.login.Login;
 import io.restassured.http.Header;
 
 public class Feed extends BaseGet {

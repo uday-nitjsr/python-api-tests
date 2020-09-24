@@ -1,7 +1,7 @@
 package test;
 
 import api.features.articles.Articles;
-import api.features.login.Login;
+import api.features.users.login.Login;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
