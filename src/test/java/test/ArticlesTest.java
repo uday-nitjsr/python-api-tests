@@ -26,7 +26,7 @@ public class ArticlesTest {
 
     @Test
     public void AT03_testArticleOnFeedWithCustomLimit() {
-        afterLogin.setLimit(0);
+        afterLogin.setLimit(10);
         afterLogin.fetchResponse();
         Assert.assertEquals(afterLogin.getArticleCountOnFeed(), 1, afterLogin.responseString());
     }
