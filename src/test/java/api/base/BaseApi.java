@@ -1,6 +1,5 @@
 package api.base;
 
-import io.restassured.RestAssured;
 import io.restassured.http.Headers;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -12,7 +11,7 @@ public interface BaseApi {
         GET, PUT, POST, DELETE;
     }
 
-    RequestSpecification httpRequest = RestAssured.given();
+    RequestSpecification httpRequest = null;
     String url = "http://localhost:3000/api";
 
 
