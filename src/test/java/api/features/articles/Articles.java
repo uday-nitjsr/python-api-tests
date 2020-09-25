@@ -1,23 +1,39 @@
 package api.features.articles;
 
-import api.features.users.login.Login;
 import api.base.BaseApi;
 import api.base.BaseGet;
 import io.restassured.http.Header;
+import io.restassured.response.Response;
 
 public class Articles extends BaseGet {
     String url = BaseApi.url + "/articles";
-    Login login;
+    int limit;
+    int offset;
+    Response response;
+
+    public void setLimit(int limit) {
+        this.limit = limit;
+        addQueryParameter("limit",this.limit);
+    }
+
+    public void setOffset(int offset) {
+        this.offset = offset;
+        addQueryParameter("offset",this.offset);
+    }
+
+    public void fetchResponse(){
+        response = request(url);
+    }
+
     public int getArticleCount(){
-        return request(url).body().jsonPath().get("articlesCount");
+        return response.body().jsonPath().get("articlesCount");
     }
 
     public int getArticleCountOnFeed(){
-        return request(url).body().jsonPath().get("articlesCount");
+        return response.body().jsonPath().get("articlesCount");
     }
 
     public Articles(){
-
     }
 
     public Articles(String token){
@@ -25,5 +41,7 @@ public class Articles extends BaseGet {
         addHeader(header);
     }
 
-
+    public String responseString(){
+        return response.body().asString();
+    }
 }

@@ -23,4 +23,8 @@ public class BaseGet implements BaseApi{
     public void addHeader(Header header){
         httpRequest.header(header);
     }
+
+    public void addQueryParameter(String parameterName,Object value){
+        httpRequest.queryParam(parameterName,value);
+    }
 }

@@ -11,6 +11,16 @@ public class Feed extends BaseGet {
     int limit;
     int offset;
 
+    public void setLimit(int limit) {
+        this.limit = limit;
+        addQueryParameter("limit",limit);
+    }
+
+    public void setOffset(int offset) {
+        this.offset = offset;
+        addQueryParameter("offset",offset);
+    }
+
     public int getArticleCount(){
         return request(url).body().jsonPath().get("articlesCount");
     }
