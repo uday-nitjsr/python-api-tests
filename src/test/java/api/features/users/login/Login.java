@@ -9,8 +9,8 @@ import object.users.login.LoginObject;
 public class Login extends BasePost {
     String url = BaseApi.url + "/users/login";
 
-    String username;
-    String password;
+    private String username;
+    private String password;
 
     public String login(){
         UserObject user = new UserObject(username,password);
